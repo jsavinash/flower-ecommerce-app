@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 ROOT_URLCONF = 'ecomm.urls'
@@ -75,10 +76,22 @@ WSGI_APPLICATION = 'ecomm.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+      'default': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      'NAME': 'ecomm_admin',                      
+      'USER': 'postgres',
+      'PASSWORD': '!KTMsaitama8',
+      'HOST': 'localhost',
+      'PORT': '5432',
+   },
+     'users': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      'NAME': 'flower_ecommerce',                      
+      'USER': 'postgres',
+      'PASSWORD': '!KTMsaitama8',
+      'HOST': 'localhost',
+      'PORT': '5432',
+   }
 }
 
 
@@ -119,11 +132,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "public/media")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "public/assets")]
 
 # Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
-MEDIA_URL = '/media/'
+ASSETS_ROOT = os.path.join(BASE_DIR, 'public/assets')
+ASSETS_URL = '/assets/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
