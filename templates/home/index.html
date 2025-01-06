@@ -1,5 +1,25 @@
 {% extends "base/base.html"%}
 {% block title %}Homepage{% endblock title %}
 {% block start %}
-<h2>Index</h2>
+First Name :- {{ firstname }}
+<br />
+Last Name :- {{ lastname }}
+<br />
+{% with middlename="Tobias" %}
+Middle Name :- {{ middlename }}
+{% endwith %}
+{% if 1 != 1 %}
+if executed
+{% else %}
+else executed
+{% endif %}
+
+{% with fruits="['Avinash', 'Nishad', 'Takshu']" %}
+<ul>
+  {% for x in fruits %}
+  <li>{{ x }}</li>
+  {% endfor %}
+</ul>
+{% endwith %}
+
 {% endblock %}
